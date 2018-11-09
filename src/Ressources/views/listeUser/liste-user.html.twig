@@ -1,0 +1,34 @@
+{#{% extends '@App/layout.html.twig' %}#}
+    {% block content %}
+
+{#        <h2>Welcome home !! {#{{ dump(INFOS) }}#}</h2>#}
+ {#   <body>
+                    
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Mail</th>
+      <th scope="col">login</th>
+      <th scope="col">password</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    {% for INFO in INFOS %}
+        <tr>
+          <td>{{INFO['Userfirstname']}}</td> 
+          <td>{{INFO['Usersecondename']}}</td>
+          <td>{{INFO['Usermail']}}</td>
+          <td>{{INFO['Userlogin']}}</td>
+          <td>{{INFO['Userpassword']}}</td>
+          </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>
+    </body>
+</html>#}
+
+ {% endblock %}
