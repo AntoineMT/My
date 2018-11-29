@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\User;
 
 class UserController extends AbstractController
 {
@@ -18,20 +19,22 @@ class UserController extends AbstractController
     }
     
      /**
-     * @Route("/liste_user", name="listeUser")
+     * @Route("/user/liste_user", name="listeUser")
      */
     
     public function ListeUser()
     {
+        
             $em = $this->getDoctrine()->getManager(); 
             $qb = $em->createQueryBuilder();     
-            $infosUser = $qb->select('p.Userfirstname, p.Usersecondename, p.Usermail , p.Userlogin , p.Userpassword')
-            ->from('AppBundle:User', 'p');
+            $infosUser = $qb->select('p.firstname, p.secondename, p.mail , p.login , p.password')
+            ->from('App:User', 'p');
+            
             $infosUser= $qb->getQuery()->getResult();
-//            $twig->addExtension(new \Twig_Extension_Debug);
+//            var_dump($infosUser);die('eee');
            
-        return $this->render('user/ListeUser.html.twig', [
-             'INFOS' => $infosUser,
+                return $this->render('user/liste-user.html.twig', [
+                'INFOS' => $infosUser,
         ]);
     }
 }

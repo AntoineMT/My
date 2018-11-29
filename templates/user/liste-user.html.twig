@@ -1,0 +1,34 @@
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"/>
+<link type="text/css" rel="stylesheet" href="/js/bootstrap.min.js"/>
+<link type="text/css" rel="stylesheet" href="/css/custom.css"/>
+    <head>
+
+    {% include ('default/navbar.html.twig') %}
+    </head>
+
+   <body>
+{#                    {{ dump(INFOS) }}#}
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Mail</th>
+      <th scope="col">login</th>
+      <th scope="col">password</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for INFO in INFOS %}
+        <tr>
+          <td>{{INFO['firstname']}}</td> 
+          <td>{{INFO['secondename']}}</td>
+          <td>{{INFO['mail']}}</td>
+          <td>{{INFO['login']}}</td>
+          <td>{{INFO['password']}}</td>
+          </tr>
+    {% endfor %}
+  </tbody>
+</table>
+    </body>
+
